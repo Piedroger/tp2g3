@@ -1,2 +1,2 @@
 # tp2g3
-Grupo3
+Grupo3print()
