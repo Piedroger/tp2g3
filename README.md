@@ -111,7 +111,7 @@ print('s1,s2,s3:',s1,s2,s3)
 ps = s1/(s2*s3)**0.5
 print('ps:',ps)
 
-#Spearman
+------
 import pandas as pd
 import math
 
