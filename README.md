@@ -110,3 +110,35 @@ for i in range(len(suma_filas)):
 print('s1,s2,s3:',s1,s2,s3)
 ps = s1/(s2*s3)**0.5
 print('ps:',ps)
+
+#Spearman
+import pandas as pd
+import math
+
+data = pd.read_csv (r'https://archive.ics.uci.edu/ml/machine-learning-databases/00491/15.csv')   
+X= data.sex #Varibla predictora
+Y= data.wage #Variable predictora
+
+def average(x):
+    assert len(x) > 0
+    return float(sum(x)) / len(x)
+
+def pearson_def(x, y):
+    assert len(x) == len(y)
+    n = len(x)
+    assert n > 0
+    avg_x = average(x)
+    avg_y = average(y)
+    diffprod = 0
+    xdiff2 = 0
+    ydiff2 = 0
+    for idx in range(n):
+        xdiff = x[idx] - avg_x
+        ydiff = y[idx] - avg_y
+        diffprod += xdiff * ydiff
+        xdiff2 += xdiff * xdiff
+        ydiff2 += ydiff * ydiff
+
+    return diffprod / math.sqrt(xdiff2 * ydiff2)
+
+print (pearson_def(X,Y)) 
